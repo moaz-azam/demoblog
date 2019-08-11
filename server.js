@@ -20,7 +20,7 @@ app.get("/",  function(req, res){
     res.redirect("/blogs");
 });
 app.get("/blogs",  function(req, res){
-    blog.find({}, function(err, blogs){
+    Blog.find({}, function(err, blogs){
         if(err){
             console.log(err);
         }else {
@@ -52,11 +52,6 @@ app.get("blogs/:id", function(req, res){
         }
     });
 });
-
-
-
-
-
 
 
 app.listen(process.env.PORT);
