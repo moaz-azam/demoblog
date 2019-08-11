@@ -3,6 +3,14 @@ mongoose          = require("mongoose"),
 express              = require("express"),
 app                    = express();
 
+const config = require('config');
+//...
+
+if (config.has('optionalFeature.detail')) {
+  const detail = config.get('optionalFeature.detail');
+  //...
+}
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
 
 app.set("view engine", "ejs");
