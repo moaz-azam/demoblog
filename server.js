@@ -15,7 +15,7 @@ var blogSchema = new mongoose.Schema({
     body: String,
     create: {type:Date,  default:Date.now }
 });
-var blog = mongoose.Schema(blog, blogSchema);
+var Blog = mongoose.Schema(blog, blogSchema);
 app.get("/",  function(req, res){
     res.redirect("/blogs");
 });
