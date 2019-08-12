@@ -1,7 +1,7 @@
-var bodyparser   = require("body-parser"),
-mongoose          = require("mongoose"),
-express              = require("express"),
-app                    = express();
+var bodyparser   = require("body-parser");
+var mongoose          = require("mongoose");
+var express              = require("express");
+var app                    = express();
 
 const config = require('config');
 //...
@@ -28,6 +28,7 @@ var Blog = mongoose.Schema(Blog, blogSchema);
 app.get("/",  function(req, res){
     res.redirect("/blogs");
 });
+
 app.get("/blogs",  function(req, res){
     Blog.find({}, function(err, blogs){
         if(err){
