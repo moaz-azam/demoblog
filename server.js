@@ -3,13 +3,13 @@ var mongoose          = require("mongoose");
 var express              = require("express");
 var app                    = express();
 
-const config = require('config');
-//...
-
-if (config.has('optionalFeature.detail')) {
-  const detail = config.get('optionalFeature.detail');
-  //...
-}
+// const config = require('config');
+// //...
+//
+// if (config.has('optionalFeature.detail')) {
+//   const detail = config.get('optionalFeature.detail');
+//   //...
+// }
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
 
@@ -23,7 +23,13 @@ var blogSchema = new mongoose.Schema({
     body: String,
     create: {type:Date,  default:Date.now }
 });
-var Blog = mongoose.Schema(Blog, blogSchema);
+var  Blog =  mongoose.model("Blog", blogSchema);
+// 
+// Blog.create({
+//     title: "first blog",
+//     image: "https://unsplash.com/photos/eqFOKASP2ww",
+//     body: "irst blog post",
+// });
 
 app.get("/",  function(req, res){
     res.redirect("/blogs");
