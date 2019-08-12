@@ -23,7 +23,7 @@ var blogSchema = new mongoose.Schema({
     body: String,
     create: {type:Date,  default:Date.now }
 });
-var Blog = mongoose.Schema(blog, blogSchema);
+var Blog = mongoose.Schema(Blog, blogSchema);
 
 app.get("/",  function(req, res){
     res.redirect("/blogs");
@@ -63,4 +63,4 @@ app.get("blogs/:id", function(req, res){
 });
 
 
-app.listen(process.env.PORT || 3030);
+app.listen(process.env.PORT || 3030 );
