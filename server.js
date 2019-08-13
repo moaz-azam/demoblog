@@ -3,13 +3,13 @@ var mongoose          = require("mongoose");
 var express              = require("express");
 var app                    = express();
 
-// const config = require('config');
-// //...
-//
-// if (config.has('optionalFeature.detail')) {
-//   const detail = config.get('optionalFeature.detail');
-//   //...
-// }
+const config = require('config');
+//...
+
+if (config.has('optionalFeature.detail')) {
+  const detail = config.get('optionalFeature.detail');
+  //...
+}
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
 
@@ -24,7 +24,7 @@ var blogSchema = new mongoose.Schema({
     create: {type:Date,  default:Date.now }
 });
 var  Blog =  mongoose.model("Blog", blogSchema);
-// 
+//
 // Blog.create({
 //     title: "first blog",
 //     image: "https://unsplash.com/photos/eqFOKASP2ww",
@@ -39,7 +39,7 @@ app.get("/blogs",  function(req, res){
     Blog.find({}, function(err, blogs){
         if(err){
             console.log(err);
-        }else {
+        }else{
             res.render("index", {blogs: blogs});
         }
     });
