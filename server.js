@@ -30,11 +30,6 @@ var  Blog =  mongoose.model("Blog", blogSchema);
 //     image: "https://unsplash.com/photos/eqFOKASP2ww",
 //     body: "irst blog post",
 // });
-
-app.get("/",  function(req, res){
-    res.redirect("/blogs");
-});
-
 app.get("/blogs",  function(req, res){
     Blog.find({},  function(err, blogs){
         if(err){
@@ -44,6 +39,12 @@ app.get("/blogs",  function(req, res){
         }
     });
 });
+
+app.get("/",  function(req, res){
+    res.redirect("/blogs");
+});
+
+
 
 app.get("blogs/new", function(req, res){
     res.render("new");
