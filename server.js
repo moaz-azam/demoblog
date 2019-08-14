@@ -40,7 +40,7 @@ app.get("/blogs",  function(req, res){
         if(err){
             console.log(err);
         }else{
-            res.render("index", {blogs: blogs});
+            res.render("blogs", {blogs: blogs});
         }
     });
 });
