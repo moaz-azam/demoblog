@@ -1,20 +1,20 @@
-var bodyparser   = require("body-parser");
-var mongoose          = require("mongoose");
-var express              = require("express");
-var app                    = express();
+var bodyparser  = require("body-parser");
+var mongoose = require("mongoose");
+var express = require("express");
+var app = express();
 
-const config = require('config');
-//...
-
-if (config.has('optionalFeature.detail')) {
-  const detail = config.get('optionalFeature.detail');
-  //...
-}
+// const config = require('config');
+// //...
+//
+// if (config.has('optionalFeature.detail')) {
+//   const detail = config.get('optionalFeature.detail');
+//   //...
+// }
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+//app.use(express.static("public"));
 app.use(bodyparser.urlencoded({extended: true}));
 
 var blogSchema = new mongoose.Schema({
@@ -36,7 +36,7 @@ app.get("/",  function(req, res){
 });
 
 app.get("/blogs",  function(req, res){
-    Blog.find({}, function(err, blogs){
+    Blog.find({},  function(err, blogs){
         if(err){
             console.log(err);
         }else{
