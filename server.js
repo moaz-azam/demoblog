@@ -2,6 +2,7 @@ var bodyparser  = require("body-parser");
 var mongoose = require("mongoose");
 var express = require("express");
 var app = express();
+var errorEx = require('error-ex');
 
 // const config = require('config');
 // //...
