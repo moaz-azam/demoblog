@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moaz-azam/demoblog.git"
@@ -19,6 +19,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^2.6.2",
+    "ejs-lint": "^0.3.0",
     "express": "^4.17.1",
     "mongoose": "^5.6.9"
   },
